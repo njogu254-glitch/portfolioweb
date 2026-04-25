@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dev Njogu — Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">D.N<span class="dot">.</span></a>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#reviews">Reviews</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <!-- View Toggle -->
+      <div class="view-toggle">
+        <span class="toggle-label employer-label">Employer</span>
+        <label class="toggle-switch" title="Switch to Admin View">
+          <input type="checkbox" id="viewToggle" />
+          <span class="toggle-slider"></span>
+        </label>
+        <span class="toggle-label admin-label">Admin</span>
+      </div>
+
+      <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===== ADMIN BADGE ===== -->
+  <div class="admin-badge" id="adminBadge">
+    <span class="admin-icon">⚙</span> Admin Mode Active
+  </div>
+
+  <!-- ===== HOME SECTION ===== -->
+  <section id="home" class="section hero-section">
+    <div class="hero-bg-grid"></div>
+    <div class="container hero-container">
+      <div class="hero-text">
+        <p class="hero-eyebrow">Hello, I'm</p>
+        <h1 class="hero-name">Dev<br /><em>Njogu</em></h1>
+        <p class="hero-title" id="heroTitle">Front-end Developer</p>
+        <p class="hero-bio" id="heroBio">
+          I craft elegant, high-performance digital experiences — bridging the gap between stunning design and robust engineering. 
+         Confidence in turning complex problems into clean, scalable solutions.
+        </p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn btn-primary">View Projects</a>
+          <a href="#contact" class="btn btn-ghost">Contact Me</a>
+        </div>
+        <!-- Admin: Edit Hero -->
+        <div class="admin-only admin-hero-controls">
+          <button class="btn btn-admin-sm" id="editHeroBtn">Edit Hero</button>
+        </div>
+      </div>
+
+      <div class="hero-image-wrap">
+        <div class="hero-image-ring"></div>
+        <img src="" alt="Profile" class="hero-img" id="heroImg" />
+        <div class="hero-img-placeholder" id="heroImgPlaceholder">
+          <span>D.N</span>
+        </div>
+        <!-- Admin: Upload Profile Image -->
+        <label class="admin-only upload-overlay" for="profileImageInput" title="Change profile photo">
+          <span>Change Photo</span>
+          <input type="file" id="profileImageInput" accept="image/*" hidden />
+        </label>
+      </div>
+    </div>
+
+    <!-- Hero edit modal (admin) -->
+    <div class="mini-modal" id="heroEditModal">
+      <div class="mini-modal-inner">
+        <h3>Edit Hero Section</h3>
+        <label>Name</label>
+        <input type="text" id="editName" placeholder="Your Name" />
+        <label>Title</label>
+        <input type="text" id="editTitle" placeholder="Your Title" />
+        <label>Bio</label>
+        <textarea id="editBio" rows="4" placeholder="Short bio..."></textarea>
+        <div class="mini-modal-actions">
+          <button class="btn btn-primary btn-sm" id="saveHeroBtn">Save</button>
+          <button class="btn btn-ghost btn-sm" id="cancelHeroBtn">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS SECTION ===== -->
+  <section id="skills" class="section skills-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">What I Do</p>
+        <h2 class="section-title">Skills & Expertise</h2>
+      </div>
+
+      <div class="skills-grid" id="skillsGrid">
+        <!-- Populated by JS -->
+      </div>
+
+      <!-- Admin: Add Skill -->
+      <div class="admin-only admin-actions">
+        <button class="btn btn-admin" id="addSkillBtn">+ Add Skill Category</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS SECTION ===== -->
+  <section id="projects" class="section projects-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">My Work</p>
+        <h2 class="section-title">Featured Projects</h2>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Populated by JS -->
+      </div>
+
+      <!-- Admin: Add Project -->
+      <div class="admin-only admin-actions">
+        <button class="btn btn-admin" id="addProjectBtn">+ Add Project</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CV SECTION ===== -->
+  <section id="cv" class="section cv-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Background</p>
+        <h2 class="section-title">CV & Experience</h2>
+      </div>
+
+      <div class="cv-layout">
+        <!-- Left: Download + Certs -->
+        <div class="cv-sidebar">
+          <div class="cv-card cv-download-card">
+            <div class="cv-card-icon">+</div>
+            <h3>Download CV</h3>
+            <p>Get the full PDF version of my resume</p>
+            <a href="#" class="btn btn-primary" id="downloadCvBtn" download>Download PDF</a>
+            <label class="admin-only btn btn-admin-sm cv-upload-label" for="cvUploadInput">
+              ⬆ Upload CV
+              <input type="file" id="cvUploadInput" accept=".pdf" hidden />
+            </label>
+          </div>
+
+          <div class="cv-card certs-card">
+            <h3>Certifications</h3>
+            <ul class="certs-list" id="certsList">
+              <!-- Populated by JS -->
+            </ul>
+            <div class="admin-only">
+              <button class="btn btn-admin-sm" id="addCertBtn">+ Add Certificate</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Timeline -->
+        <div class="cv-main">
+          <div class="cv-timeline-section">
+            <h3 class="timeline-label">Experience</h3>
+            <div class="timeline" id="experienceTimeline">
+              <!-- Populated by JS -->
+            </div>
+            <div class="admin-only">
+              <button class="btn btn-admin-sm" id="addExpBtn">+ Add Experience</button>
+            </div>
+          </div>
+          <div class="cv-timeline-section">
+            <h3 class="timeline-label">Education</h3>
+            <div class="timeline" id="educationTimeline">
+              <!-- Populated by JS -->
+            </div>
+            <div class="admin-only">
+              <button class="btn btn-admin-sm" id="addEduBtn">+ Add Education</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== REVIEWS SECTION ===== -->
+  <section id="reviews" class="section reviews-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Testimonials</p>
+        <h2 class="section-title">What People Say</h2>
+      </div>
+
+      <div class="reviews-grid" id="reviewsGrid">
+        <!-- Populated by JS -->
+      </div>
+
+      <div class="reviews-actions">
+        <button class="btn btn-ghost" id="addReviewBtn">+ Leave a Review</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION  -->
+  <section id="contact" class="section contact-section">
+    <div class="container">
+      <div class="section-header">
+        <p class="section-eyebrow">Get in Touch</p>
+        <h2 class="section-title">Contact Me</h2>
+      </div>
+
+      <div class="contact-layout">
+        <div class="contact-info">
+          <p class="contact-tagline">Have a project in mind or just want to say hi? I'd love to hear from you.</p>
+          <ul class="contact-details">
+            <li><span class="ci-icon"><img src="email.webp" alt="icon"></span><span id="contactEmail">njogumugo020@gmail.com</span></li>
+            <li><span class="ci-icon"><img src="location icon.webp" alt="icon"></span><span id="contactLocation">Nairobi, Kenya</span></li>
+            <li><span class="ci-icon"><img src="linkedin icon.webp" alt="icon"></span><a href="#" id="contactLinkedIn">www.linkedin.com/in/njogu-mugo-392b13298</a></li>
+          </ul>
+          <div class="admin-only">
+            <button class="btn btn-admin-sm" id="editContactBtn"> Edit Contact Info</button>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="form-group">
+            <label for="contactName">Name</label>
+            <input type="text" id="contactName" placeholder="Your full name" autocomplete="name" />
+            <span class="field-error" id="nameError"></span>
+          </div>
+          <div class="form-group">
+            <label for="contactEmailInput">Email</label>
+            <input type="email" id="contactEmailInput" placeholder="your@email.com" autocomplete="email" />
+            <span class="field-error" id="emailError"></span>
+          </div>
+          <div class="form-group">
+            <label for="contactMsg">Message</label>
+            <textarea id="contactMsg" rows="5" placeholder="Tell me about your project..."></textarea>
+            <span class="field-error" id="msgError"></span>
+          </div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+          <div class="form-success" id="formSuccess">✓ Message sent! I'll get back to you soon.</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span class="nav-logo">D.N<span class="dot">.</span></span>
+      <p>© 2026 Dev Njogu.</p>
+      <div class="footer-socials">
+        <a href="#" aria-label="GitHub">GitHub</a>
+        <a href="#" aria-label="LinkedIn">Linkedin</a>
+        <a href="#" aria-label="Whatsapp">Whatsapp</a>
+        <a href="#" aria-label="Facebook">Facebook</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== GLOBAL MODAL ===== -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="mainModal">
+      <button class="modal-close" id="modalClose">✕</button>
+      <div class="modal-body" id="modalBody">
+        <!-- Dynamic content -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== TOAST ===== -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
