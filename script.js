@@ -251,7 +251,7 @@ let state = {
   profileImg:     loadData('profileImg',     DEFAULTS.profileImg),
 };
 
-let isAdmin = false; // current view mode
+let isAdmin = true; // current view mode
 
 /* ============================================================
    NAVIGATION
@@ -297,7 +297,7 @@ function initViewToggle() {
   toggle.addEventListener('change', () => {
     isAdmin = toggle.checked;
     document.body.classList.toggle('admin-mode', isAdmin);
-    showToast(isAdmin ? '⚙ Admin mode activated' : '👔 Employer view active');
+    showToast(isAdmin ? 'Admin mode activated' : 'Employer view active');
     // Animate skill bars when switching to employer view
     if (!isAdmin) animateSkillBars();
   });
@@ -453,7 +453,7 @@ function openSkillModal(id) {
         </div>
         <div>
           <label>Icon (emoji)</label>
-          <input type="text" id="sk_icon" value="${existing?.icon || '🛠'}" placeholder="🛠" />
+          <input type="text" id="sk_icon" value="${existing?.icon || ''}" placeholder="" />
         </div>
       </div>
       <label>Skills (one per line: "Skill Name, Level")</label>
@@ -512,7 +512,7 @@ function renderProjects() {
 
     const thumb = proj.thumbnail
       ? `<img src="${proj.thumbnail}" alt="${proj.title}" />`
-      : `<div class="project-thumb-placeholder">💻</div>`;
+      : `<div class="project-thumb-placeholder"></div>`;
 
     card.innerHTML = `
       <div class="project-thumb">${thumb}</div>
@@ -748,7 +748,7 @@ function renderCV() {
     dlBtn.textContent = 'Download PDF (placeholder)';
     dlBtn.addEventListener('click', e => {
       e.preventDefault();
-      if (!isAdmin) showToast('📄 CV not yet uploaded. Enable Admin mode to upload.');
+      if (!isAdmin) showToast(' CV not yet uploaded. Enable Admin mode to upload.');
     });
   }
 
@@ -798,7 +798,7 @@ function renderCerts() {
     const li = document.createElement('li');
     li.className = 'cert-item';
     li.innerHTML = `
-      <span class="cert-icon">🏅</span>
+      <span class="cert-icon"></span>
       <div>
         <p class="cert-name">${cert.name}</p>
         <p class="cert-issuer">${cert.issuer}</p>
