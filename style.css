@@ -1419,6 +1419,15 @@ body.admin-mode .review-del { display: block; }
 }
 
 /* Mobile */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}
 @media (max-width: 600px) {
   .section { padding: 72px 0; }
 

@@ -1,4 +1,4 @@
-/*ALEX MORGAN PORTFOLIO — script.js
+/*Dev Njogu PORTFOLIO — script.js
    Handles: View toggling, dynamic rendering, localStorage,
             form validation, modals, animations */
 
@@ -71,10 +71,10 @@ function buildStars(n) {
 
 const DEFAULTS = {
   hero: {
-    name: 'Alex Morgan',
-    nameItalic: 'Morgan',
-    title: 'Full-Stack Developer & UX Engineer',
-    bio: 'I craft elegant, high-performance digital experiences — bridging the gap between stunning design and robust engineering. 6+ years turning complex problems into clean, scalable solutions.',
+    name: 'Dev Njogu',
+    nameItalic: 'Njogu',
+    title: 'Full-Stack Developer & Cybersecurity enthusiast',
+    bio: 'I craft elegant, high-performance digital experiences — bridging the gap between stunning design and robust engineering. Confidence in turning complex problems into clean, scalable solutions.',
   },
 
   skills: [
@@ -82,9 +82,9 @@ const DEFAULTS = {
       id: uid(),
       category: 'Frontend',
       items: [
-        { name: 'React / Next.js', level: 92 },
-        { name: 'TypeScript', level: 88 },
-        { name: 'CSS / Tailwind', level: 95 },
+        { name: 'HTML', level: 92 },
+        { name: 'JavaScript', level: 88 },
+        { name: 'CSS', level: 95 },
         { name: 'Vue.js', level: 78 },
       ],
     },
@@ -92,10 +92,10 @@ const DEFAULTS = {
       id: uid(),
       category: 'Backend',
       items: [
-        { name: 'Node.js / Express', level: 85 },
-        { name: 'Python / Django', level: 80 },
+        { name: 'Node.js', level: 85 },
+        { name: 'Python', level: 80 },
         { name: 'PostgreSQL', level: 82 },
-        { name: 'REST / GraphQL', level: 88 },
+        { name: 'Mongo DB', level: 88 },
       ],
     },
     {
@@ -103,127 +103,16 @@ const DEFAULTS = {
       category: 'Tools & DevOps',
       items: [
         { name: 'Git / GitHub', level: 94 },
-        { name: 'Docker / K8s', level: 72 },
+        { name: 'Docker', level: 72 },
         { name: 'CI/CD (GitHub Actions)', level: 78 },
-        { name: 'Figma / Design Systems', level: 83 },
+        { name: 'Figma ', level: 83 },
       ],
     },
   ],
-
-  projects: [
-    {
-      id: uid(),
-      title: 'FinDash — Analytics Platform',
-      description: 'A real-time financial analytics dashboard featuring interactive charts, AI-driven insights, and role-based access control built for enterprise clients.',
-      longDesc: 'FinDash is an enterprise-grade analytics platform that processes millions of transactions daily. It features WebSocket-driven live updates, a custom charting engine built on D3.js, and a microservices backend with Node.js and PostgreSQL. Authentication is powered by OAuth2 with granular role-based access.',
-      tags: ['React', 'D3.js', 'Node.js', 'PostgreSQL'],
-      thumbnail: '',
-      screenshots: [],
-      videoUrl: '',
-      liveUrl: '#',
-      repoUrl: '#',
-    },
-    {
-      id: uid(),
-      title: 'ShopFlow — E-commerce CMS',
-      description: 'A headless e-commerce content management system with a drag-and-drop builder, inventory management, and seamless Stripe integration.',
-      longDesc: 'ShopFlow gives merchants total control over their storefront through an intuitive drag-and-drop page builder. The headless architecture decouples the CMS from the frontend, enabling blazing-fast storefronts on any device. Built with Next.js, Prisma, and Stripe.',
-      tags: ['Next.js', 'Prisma', 'Stripe', 'Vercel'],
-      thumbnail: '',
-      screenshots: [],
-      videoUrl: '',
-      liveUrl: '#',
-      repoUrl: '#',
-    },
-    {
-      id: uid(),
-      title: 'MindMap AI — Collaborative Workspace',
-      description: 'A multiplayer mind-mapping tool with AI-assisted idea generation, real-time collaboration, and export to multiple formats.',
-      longDesc: 'MindMap AI uses WebRTC for peer-to-peer collaboration and Socket.io for state synchronization across connected users. The AI layer calls OpenAI to generate idea branches from a seed topic. Export to PDF, PNG, and Markdown is supported.',
-      tags: ['TypeScript', 'WebRTC', 'Socket.io', 'OpenAI'],
-      thumbnail: '',
-      screenshots: [],
-      videoUrl: '',
-      liveUrl: '#',
-      repoUrl: '#',
-    },
-  ],
-
-  experience: [
-    {
-      id: uid(),
-      date: '2022 – Present',
-      role: 'Senior Full-Stack Engineer',
-      company: 'Techify Labs, Nairobi',
-      desc: 'Led a team of 5 engineers to deliver 3 SaaS products from 0 to 1. Architected microservices infrastructure handling 500k+ daily requests.',
-    },
-    {
-      id: uid(),
-      date: '2020 – 2022',
-      role: 'Frontend Developer',
-      company: 'Creative Studio X, Remote',
-      desc: 'Built component libraries and design systems used across 12 client projects. Reduced load time by 40% through code splitting and lazy loading strategies.',
-    },
-    {
-      id: uid(),
-      date: '2019 – 2020',
-      role: 'Junior Developer',
-      company: 'StartupNest, Nairobi',
-      desc: 'Developed and maintained React-based web applications. Collaborated closely with designers to translate Figma mockups into pixel-perfect UIs.',
-    },
-  ],
-
-  education: [
-    {
-      id: uid(),
-      date: '2015 – 2019',
-      role: 'BSc Computer Science',
-      company: 'University of Nairobi',
-      desc: 'Graduated First Class Honours. Thesis: "Optimizing Real-Time Data Pipelines for Mobile Financial Services".',
-    },
-    {
-      id: uid(),
-      date: '2023',
-      role: 'AWS Solutions Architect Bootcamp',
-      company: 'Online — A Cloud Guru',
-      desc: 'Intensive 6-week program covering cloud infrastructure design, security best practices, and cost optimisation.',
-    },
-  ],
-
-  certifications: [
-    { id: uid(), name: 'AWS Certified Solutions Architect', issuer: 'Amazon Web Services · 2023' },
-    { id: uid(), name: 'Google Professional Cloud Developer', issuer: 'Google · 2022' },
-    { id: uid(), name: 'Meta Frontend Developer', issuer: 'Meta · 2021' },
-  ],
-
-  reviews: [
-    {
-      id: uid(),
-      name: 'Sarah Chen',
-      role: 'CTO, Techify Labs',
-      rating: 5,
-      text: 'Alex is simply one of the best engineers I have had the pleasure of working with. Deeply technical, fast,and always thinking about the user. Delivered our platform ahead of schedule.'
-    },
-    {
-      id: uid(),
-      name: 'Marcus Oduya',
-      role: 'Product Manager, FinCorp',
-      rating: 5,
-      text: 'Exceptional communication and code quality. Alex took a vague brief and turned it into a polished product. Would absolutely hire again.',
-    },
-    {
-      id: uid(),
-      name: 'Priya Nair',
-      role: 'Founder, ShopFlow',
-      rating: 5,
-      text: 'Our entire platform was built by Alex. Clean architecture, great docs, and always available. The team was amazed at how quickly they grasped our domain.',
-    },
-  ],
-
   contact: {
-    email: 'alex@example.com',
+    email: 'njogumugo020@gmail.com',
     location: 'Nairobi, Kenya',
-    linkedin: 'linkedin.com/in/alexmorgan',
+    linkedin: 'www.linkedin.com/in/njogu-mugo-392b13298',
   },
 
   cvUrl: '',      // stores data URL of uploaded PDF
@@ -286,7 +175,7 @@ function initViewToggle() {
   toggle.addEventListener('change', () => {
     isAdmin = toggle.checked;
     document.body.classList.toggle('admin-mode', isAdmin);
-    showToast(isAdmin ? '⚙ Admin mode activated' : '👔 Employer view active');
+    showToast(isAdmin ? 'Admin mode activated' : 'Employer view active');
     // Animate skill bars when switching to employer view
     if (!isAdmin) animateSkillBars();
   });
